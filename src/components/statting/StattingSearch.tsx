@@ -54,7 +54,9 @@ export const StattingSearch = (props: {
     const [level, setLevel] = useState<number>((MAX_STEPS + BONUS_STEPS) * 10);
 
     useEffect(() => {
-        props.onUpdate({type, recipe, start, proficiency, tec, matPassives, element});
+        const maxSteps: number = Math.trunc(level / 100) * 10;
+        const bonusSteps: number = level / 10 % 10;
+        props.onUpdate({type, recipe, start, proficiency, tec, matPassives, element, maxSteps, bonusSteps});
     }, [type, recipe, start, proficiency, tec, matPassives, element, level, props.onUpdate]);
 
     useEffect(() => {
