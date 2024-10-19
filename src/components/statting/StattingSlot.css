@@ -1,0 +1,39 @@
+:root {
+    --slot-padding: 0.35rem;
+}
+
+.long-button-style {
+    outline: none;
+    user-select: none;
+    color: inherit;
+    background-color: transparent;
+    border-color: transparent;
+    flex: 1 0 auto;
+    padding: var(--slot-padding) 0.5rem;
+}
+
+.long-button-style[disabled] {
+    opacity: 50%;
+}
+
+.mat-style {
+    line-height: 0.5rem;
+    padding-bottom: 3px;
+    text-align: start;
+}
+
+.mat-style > span {
+    font-size: 0.5em;
+    line-height: 0.5em;
+    vertical-align: middle;
+}
+
+.slot-style {
+    border: 2px solid;
+    border-radius: 4px;
+    padding: var(--slot-padding) 0;
+}
+
+input[type=number].slot-style {
+    width: 3rem;
+}
