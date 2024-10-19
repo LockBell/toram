@@ -171,7 +171,7 @@ const LongButton = (props: {
     onLongClick: (event: PointEvent) => void,
 }) => {
     const [pressStartTime, setPressStartTime] = useState<number|null>(null);
-    const timerRef = useRef<NodeJS.Timeout|null>(null);
+    const timerRef = useRef<ReturnType<typeof setTimeout>|null>(null);
 
     const handleMouseDown = (event: PointEvent) => {
         if (event.currentTarget.disabled) return;
