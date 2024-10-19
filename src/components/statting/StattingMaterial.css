@@ -1,0 +1,20 @@
+.material th {
+    text-align: start;
+}
+
+.material-kind {
+    width: auto;
+    white-space: nowrap;
+    font-weight: bold;
+    padding-right: 8px;
+}
+
+.material-content {
+    width: auto;
+}
+
+.material-option {
+    font-size: 0.5em;
+    white-space: nowrap;
+    margin-right: 0.5rem;
+}
