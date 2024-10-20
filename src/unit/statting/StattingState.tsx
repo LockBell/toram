@@ -72,10 +72,10 @@ export const OPTIONS: Option[] = [
     { name: "CSPD", mat: Mats.Medicine, pot: 1, cost: "1.49", cat: Cat.Speed, type: "u", bonus: 16 },
     { name: "CSPD %", mat: Mats.Medicine, pot: 1, cost: 5, cat: Cat.Speed, type: "u" },
 
-    { name: "크리티컬 확률 +", mat: Mats.Mana, pot: 1, cost: 5, cat: Cat.Critical, type: "u", bonus: 1, max_only: true },
-    { name: "크리티컬 확률 %", mat: Mats.Mana, pot: 1, cost: 5, cat: Cat.Critical, type: "u", bonus: 1, max_only: true },
-    { name: "크리티컬 데미지 +", mat: Mats.Mana, pot: 3, cost: "16.49", cat: Cat.Critical, type: "u", bonus: 1, bonusratio: 1 / 3 },
-    { name: "크리티컬 데미지 %", mat: Mats.Mana, pot: 10, cost: 50, cat: Cat.Critical, type: "u" },
+    { name: "크리티컬 확률 +", mat: Mats.Mana, "pot": 1, cost: 5, cat: Cat.Critical, type: "u", bonus: 1, max_only: true },
+    { name: "크리티컬 확률 %", mat: Mats.Mana, "pot": 1, cost: 5, "cat": Cat.Critical, type: "u", bonus: 1, max_only: true },
+    { name: "크리티컬 데미지 +", mat: Mats.Mana, "pot": 3, cost: "16.49", cat: Cat.Critical, type: "u", bonus: 1, bonusratio: 1 / 3 },
+    { name: "크리티컬 데미지 %", mat: Mats.Mana, "pot": 10, cost: 50, cat: Cat.Critical, type: "u", bonus: 1, bonusratio: 1 / 8 },
 
     { name: "불 속성에 %유리", mat: Mats.Mana, pot: 5, cost: 25, cat: Cat.Elements, type: "w", bonus: 1, bonusratio: 1 / 3  },
     { name: "물 속성에 %유리", mat: Mats.Mana, pot: 5, cost: 25, cat: Cat.Elements, type: "w", bonus: 1, bonusratio: 1 / 3  },
