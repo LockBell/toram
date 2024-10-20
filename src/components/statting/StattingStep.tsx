@@ -21,10 +21,11 @@ export const StattingStep = (props: { stat: Stat }) => {
                                 <td>{pairs[0].value}</td>
                                 <td className='step-repeat' rowSpan={pairs.length}>
                                     (x{formula.repeat})
+                                    <span className='step-pot'>({formula.pot_after}pot)</span>
                                 </td>
-                                <td className='step-pot' rowSpan={pairs.length}>
-                                    ({formula.pot_after}pot)
-                                </td>
+                                {/*<td className='step-pot' rowSpan={pairs.length}>*/}
+                                {/*    ({formula.pot_after}pot)*/}
+                                {/*</td>*/}
                             </tr>
                             {pairs.slice(1).map(pair => (
                                 <tr>
