@@ -302,7 +302,6 @@ export class Slot {
         const bonusPot = Calc(bonus_diff).multiply(this.statData.pot).multiply(2);
 
         // negatives have an extra multiplier
-        debugger;
         if (change === -1) {
             basicPot.multiply(this.stat.potential_return).multiply(0.01);
             bonusPot.multiply(this.stat.bonus_potential_return).multiply(0.01)
