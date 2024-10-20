@@ -30,9 +30,9 @@ export class Stat {
     futurePot: number;
     startingPot: number;
 
-    tec: number;
-    potential_return: number;
-    bonus_potential_return: number;
+    readonly tec: number;
+    readonly potential_return: number;
+    readonly bonus_potential_return: number;
     proficiency: number;
     mat_reduction: boolean;
     readonly element_match: boolean;
@@ -59,7 +59,7 @@ export class Stat {
         this.pot = this.futurePot = search.start;
         this.startingPot = search.start;
         this.tec = search.tec || 0;
-        this.potential_return = 5 * this.tec / 10;
+        this.potential_return = 5 + (this.tec / 10);
         this.bonus_potential_return = this.potential_return / 4;
         this.proficiency = search.proficiency || 0;
         this.element_match = search.element;
@@ -119,13 +119,9 @@ export class Stat {
     calculatePenalty() {
         const categories: Map<Cat, number> = new Map();
         for (const slot of this.slots) {
-            if (!slot.statName || (slot.newStat && !slot.futureSteps))
-                continue;
-
-            const cat = slot.statData?.cat;
-            if (!cat) throw new Error("statData null Error");
-            const value: number = categories.get(cat) ?? 0;
-            categories.set(cat, value + 1);
+            if (!slot.statName || (slot.newStat && !slot.futureSteps)) continue;
+            if (!categories[slot.statData.cat]) categories[slot.statData.cat] = 0;
+            categories[slot.statData.cat]++;
         }
         const penalty_values = Array.from(categories.keys())
             .map(c => categories.get(c))
