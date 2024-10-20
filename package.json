@@ -1,6 +1,5 @@
 {
   "name": "toram",
-  "homepage": "https://lockbell.github.io/toram",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",

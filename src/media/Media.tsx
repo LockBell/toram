@@ -12,7 +12,7 @@ export const LARGE_QUERY: string = "(min-width:769px)";
 
 export const MediaSmall = ({ children }: ChildrenProps) => (
     <React.Fragment>
-        { useMediaQuery({ query : SMALL_QUERY }) && children }
+        { useMediaQuery({ query: SMALL_QUERY }) && children }
     </React.Fragment>
 );
 
@@ -23,8 +23,8 @@ export const MediaLarge = ({ children }: ChildrenProps) => (
 );
 
 export const Medias = (props: {
-    small: ReactElement,
-    large: ReactElement
+    small: ReactElement|string,
+    large: ReactElement|string
 }) => (
     <React.Fragment>
         <MediaSmall>{props.small}</MediaSmall>

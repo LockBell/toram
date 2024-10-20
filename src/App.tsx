@@ -20,6 +20,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Routes>
+                <Route path='/' element={<Statting/>}/>
                 <Route path='statting' element={<Statting/>}/>
                 <Route path='/admin' element={<Outlet/>}>
                     <Route path='' element={<Admin/>}/>

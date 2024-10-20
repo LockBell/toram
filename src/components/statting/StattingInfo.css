@@ -1,0 +1,6 @@
+.info-table td:nth-child(1),
+.info-table td[colspan="2"],
+.info-table td.info-name {
+    text-align: center;
+    padding: 0.5rem;
+}

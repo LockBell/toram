@@ -63,11 +63,17 @@ export const StattingSlot = (props: {
         props.onUpdateSlot();
     }, [props]);
 
-    const onShotCut = useCallback((event: KeyEvent) => {
-        if (event.code === 'Enter' && !stat.confirmDisabled) {
-            stat.confirm();
-            props.onUpdateSlot();
-        }
+    const onShotCut = useCallback((slot: Slot, { code }: KeyEvent) => {
+        if (code === 'Enter' && !stat.confirmDisabled) stat.confirm();
+        else if (code === 'KeyR' && !stat.repeatDisabled) stat.repeat();
+        else if (code === 'KeyZ' && !stat.undoDisabled) stat.undo();
+        else if (code === 'KeyY' && !stat.redoDisabled) stat.redo();
+        // Minimum
+        else if (code === 'KeyM') slot.changeValueBySteps(-1 * slot.getMaxSteps(true))
+        // Maximum
+        else if (code === 'KeyX') slot.changeValueBySteps(slot.getMaxSteps());
+        else return;
+        props.onUpdateSlot();
     }, [props, stat]);
 
     const onInputChange = useCallback((event: InputEvent, slot: Slot) => {
@@ -141,7 +147,7 @@ export const StattingSlot = (props: {
                                step={slot.statData?.step}
                                disabled={slot.input.disabled}
                                value={slot.input.value}
-                               onKeyDown={onShotCut}
+                               onKeyDown={(event: KeyEvent) => onShotCut(slot, event)}
                                onChange={(event: InputEvent) => onInputChange(event, slot)}/>
 
                         <MediaSmall>

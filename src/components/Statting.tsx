@@ -19,7 +19,7 @@ import {LARGE_QUERY, MediaLarge, SMALL_QUERY} from "../media/Media.tsx";
 import styled from "styled-components";
 import {ClickEvent, InputEvent, TabEvent} from "../unit/Common.tsx";
 import {deepClone} from "../unit/statting/StattingState.tsx";
-import {AddIcon, CloseIcon, CopyIcon, ResetIcon} from "./statting/StattingInfo.tsx";
+import {AddIcon, CloseIcon, CopyIcon, ResetIcon, StattingInfo} from "./statting/StattingInfo.tsx";
 import {StattingStep} from "./statting/StattingStep.tsx";
 
 type TabStat = {
@@ -130,7 +130,7 @@ export const Statting = () => {
                 <Box className='header'>
                     <h3>옵션 부여 시뮬레이션</h3>
                     <MediaLarge>
-                        <div>{Reset}</div>
+                        <div>{Reset}<StattingInfo size='small'/></div>
                     </MediaLarge>
                 </Box>
             </header>

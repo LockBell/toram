@@ -22,7 +22,7 @@ import {
 import {Equipment, EQUIPMENT_PRICE, EquipmentType} from "../../unit/statting/StattingType.tsx";
 import {Medias} from "../../media/Media.tsx";
 import {InputEvent} from "../../unit/Common.tsx";
-import {SettingIcon} from "./StattingInfo.tsx";
+import {SettingIcon, StattingInfo} from "./StattingInfo.tsx";
 
 export type Search = {
     type: Equipment;
@@ -163,22 +163,25 @@ export const StattingSearch = (props: {
                 </tbody>
             </table>
 
-            <Medias small={
-                <React.Fragment>
-                    <div>
-                        <IconButton className='icon-style' onClick={() => setOpen(true)}>
-                            {SettingIcon}
-                        </IconButton>
-                        {props.reset}
-                    </div>
-                    <Dialog open={open} onClose={() => setOpen(true)}>
-                        <DialogContent>{setting}</DialogContent>
-                        <DialogActions>
-                            <Button onClick={() => setOpen(false)}>확인</Button>
-                        </DialogActions>
-                    </Dialog>
-                </React.Fragment>
-            } large={setting}/>
+            <div>
+                <Medias small={
+                    <React.Fragment>
+                        <div className='setting-icons'>
+                            <IconButton className='icon-style' onClick={() => setOpen(true)}>
+                                {SettingIcon}
+                            </IconButton>
+                            {props.reset}
+                            <StattingInfo size='small'/>
+                        </div>
+                        <Dialog open={open} onClose={() => setOpen(true)}>
+                            <DialogContent>{setting}</DialogContent>
+                            <DialogActions>
+                                <Button onClick={() => setOpen(false)}>확인</Button>
+                            </DialogActions>
+                        </Dialog>
+                    </React.Fragment>
+                } large={setting}/>
+            </div>
         </div>
     )
 }

@@ -1,12 +1,19 @@
 .between {
     text-align: center;
     display: flex;
+    /*justify-content: flex-start;*/
     justify-content: space-around;
+    /*align-items: center;*/
     width: 100%;
 }
 
 .between > table {
     text-align: start;
+}
+
+.setting-icons {
+    display: grid;
+    place-items: center;
 }
 
 /* label style */
