@@ -40,7 +40,7 @@ export const OPTIONS: Option[] = [
     { name: "ATK %", mat: Mats.Beast, pot: 10, cost: 50, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 0.5 },
     { name: "MATK", mat: Mats.Wood, pot: 3, cost: "16.49", cat: Cat.Attack, type: "w", bonus: 1 },
     { name: "MATK %", mat: Mats.Wood, pot: 10, cost: 50, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 0.5 },
-    { name: "안정률 %", mat: Mats.Medicine, pot: 20, cost: 100, cat: Cat.Attack, type: "u" },
+    { name: "안정률 %", mat: Mats.Medicine, pot: 20, cost: 100, cat: Cat.Attack, type: "u", bonus: 1, bonusratio: 1 / 6 },
     { name: "물리 관통 %", mat: Mats.Beast, pot: 20, cost: 100, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 2 / 5 },
     { name: "마법 관통 %", mat: Mats.Wood, pot: 20, cost: 100, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 2 / 5 },
 
@@ -62,20 +62,20 @@ export const OPTIONS: Option[] = [
 
 
     { name: "명중률", mat: Mats.Medicine, pot: 10, cost: 50, cat: Cat.Accuracy, type: "w", bonus: 2, bonusratio: 2 / 3 },
-    { name: "명중률 %", mat: Mats.Medicine, pot: 20, cost: 100, cat: Cat.Accuracy, type: "w" },
+    { name: "명중률 %", mat: Mats.Medicine, pot: 20, cost: 100, cat: Cat.Accuracy, type: "w", bonus: 1, bonusratio: 1 / 6 },
 
     { name: "회피", mat: Mats.Cloth, pot: 10, cost: 50, cat: Cat.Dodge, type: "a", bonus: 2, bonusratio: 2 / 3 },
-    { name: "회피 %", mat: Mats.Cloth, pot: 20, cost: 100, cat: Cat.Dodge, type: "a" },
+    { name: "회피 %", mat: Mats.Cloth, pot: 20, cost: 100, cat: Cat.Dodge, type: "a", bonus: 1, bonusratio: 1 / 6 },
 
     { name: "ASPD", mat: Mats.Cloth, pot: 1, cost: "1.49", cat: Cat.Speed, type: "u", bonus: 16 },
-    { name: "ASPD %", mat: Mats.Cloth, pot: 1, cost: 5, cat: Cat.Speed, type: "u" },
+    { name: "ASPD %", mat: Mats.Cloth, pot: 1, cost: 5, cat: Cat.Speed, type: "u", bonus: 1, bonusratio: 1 / 6 },
     { name: "CSPD", mat: Mats.Medicine, pot: 1, cost: "1.49", cat: Cat.Speed, type: "u", bonus: 16 },
-    { name: "CSPD %", mat: Mats.Medicine, pot: 1, cost: 5, cat: Cat.Speed, type: "u" },
+    { name: "CSPD %", mat: Mats.Medicine, pot: 1, cost: 5, cat: Cat.Speed, type: "u", bonus: 1, bonusratio: 1 / 6 },
 
-    { name: "크리티컬 확률 +", mat: Mats.Mana, "pot": 1, cost: 5, cat: Cat.Critical, type: "u", bonus: 1, max_only: true },
-    { name: "크리티컬 확률 %", mat: Mats.Mana, "pot": 1, cost: 5, "cat": Cat.Critical, type: "u", bonus: 1, max_only: true },
-    { name: "크리티컬 데미지 +", mat: Mats.Mana, "pot": 3, cost: "16.49", cat: Cat.Critical, type: "u", bonus: 1, bonusratio: 1 / 3 },
-    { name: "크리티컬 데미지 %", mat: Mats.Mana, "pot": 10, cost: 50, cat: Cat.Critical, type: "u", bonus: 1, bonusratio: 1 / 8 },
+    { name: "크리티컬 확률 +", mat: Mats.Mana, pot: 1, cost: 5, cat: Cat.Critical, type: "u", bonus: 1, max_only: true },
+    { name: "크리티컬 확률 %", mat: Mats.Mana, pot: 1, cost: 5, cat: Cat.Critical, type: "u", bonus: 1, max_only: true },
+    { name: "크리티컬 데미지 +", mat: Mats.Mana, pot: 3, cost: "16.49", cat: Cat.Critical, type: "u", bonus: 1, bonusratio: 1 / 3 },
+    { name: "크리티컬 데미지 %", mat: Mats.Mana, pot: 10, cost: 50, cat: Cat.Critical, type: "u", bonus: 1, bonusratio: 1 / 8 },
 
     { name: "불 속성에 %유리", mat: Mats.Mana, pot: 5, cost: 25, cat: Cat.Elements, type: "w", bonus: 1, bonusratio: 1 / 3  },
     { name: "물 속성에 %유리", mat: Mats.Mana, pot: 5, cost: 25, cat: Cat.Elements, type: "w", bonus: 1, bonusratio: 1 / 3  },
@@ -90,11 +90,11 @@ export const OPTIONS: Option[] = [
     { name: "빛 내성 %", mat: Mats.Mana, pot: 5, cost: 25, cat: Cat.Elements, type: "a", bonus: 1, bonusratio: 2 / 3 },
     { name: "어둠 내성 %", mat: Mats.Mana, pot: 5, cost: 25, cat: Cat.Elements, type: "a", bonus: 1, bonusratio: 2 / 3 },
 
-    { name: "이상 내성 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u" },
-    { name: "Guard 회복 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u" },
-    { name: "Guard율 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u" },
-    { name: "Avoid 회복 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u" },
-    { name: "어그로 %", mat: Mats.Mana, pot: 6, cost: "33.49", cat: Cat.Special, type: "u", max: 15, max_only: true, bonus: 1, bonusratio: 2 / 5},
+    { name: "이상 내성 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u", bonus: 1, bonusratio: 1 / 6 },
+    { name: "Guard 회복 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u", max_only: true, bonus: 1, bonusratio: 1 / 6 },
+    { name: "Guard율 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u", max_only: true, bonus: 1, bonusratio: 1 / 6 },
+    { name: "Avoid 회복 %", mat: Mats.Mana, pot: 20, cost: 100, cat: Cat.Special, type: "u", max_only: true, bonus: 1, bonusratio: 1 / 6 },
+    { name: "어그로 %", mat: Mats.Mana, pot: 6, cost: "33.49", cat: Cat.Special, type: "u", max: 15, max_only: true, bonus: 1, bonusratio: 1 / 2},
 
     { name: "불 속성", mat: Mats.Mana, pot: 100, cost: 150, cat: Cat.AElements, type: "e", max: 1, nonega: true },
     { name: "물 속성", mat: Mats.Mana, pot: 100, cost: 150, cat: Cat.AElements, type: "e", max: 1, nonega: true },
