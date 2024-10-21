@@ -144,6 +144,19 @@ export class Slot {
         this.input.disabled = !this.statName || !!this.stat.finished;
     }
 
+    // minimum
+    setMinimum() {
+        if (this.statData!.nonega) {
+            this.input.value = 0;
+            this.onUpdate();
+        } else this.changeValueBySteps(-1 * this.getMaxSteps(true))
+    }
+
+    // maximum
+    setMaximum() {
+        this.changeValueBySteps(this.getMaxSteps());
+    }
+
     // value changes
     changeValueBySteps(value: number, relative?: boolean) {
         let future_steps = this.futureSteps;

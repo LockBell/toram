@@ -62,6 +62,7 @@ export const Statting = () => {
     ), [select, stats]);
 
     const addStat = useCallback((stat?: Stat, label?: string) => {
+        // @TODO change uuid
         const id: string = Math.random().toString();
         stat = stat || new Stat(deepClone(search!));
         label = label || EQUIPMENT_PRICE[search!.type];

@@ -69,9 +69,9 @@ export const StattingSlot = (props: {
         else if (code === 'KeyZ' && !stat.undoDisabled) stat.undo();
         else if (code === 'KeyY' && !stat.redoDisabled) stat.redo();
         // Minimum
-        else if (code === 'KeyM') slot.changeValueBySteps(-1 * slot.getMaxSteps(true))
+        else if (code === 'KeyM') slot.setMinimum();
         // Maximum
-        else if (code === 'KeyX') slot.changeValueBySteps(slot.getMaxSteps());
+        else if (code === 'KeyX') slot.setMaximum();
         else return;
         props.onUpdateSlot();
     }, [props, stat]);
@@ -93,8 +93,7 @@ export const StattingSlot = (props: {
         props.onUpdateSlot();
     }, [props]);
     const onLeftClick = useCallback((slot: Slot, long: boolean = false) => {
-        slot.changeValueBySteps(-1 * slot.getMaxSteps(true));
-        slot.onUpdate();
+        slot.setMinimum();
         props.onUpdateSlot();
     }, [props]);
 
@@ -105,8 +104,7 @@ export const StattingSlot = (props: {
         props.onUpdateSlot();
     }, [props]);
     const onRightClick = useCallback((slot: Slot, long: boolean = false) => {
-        slot.changeValueBySteps(slot.getMaxSteps());
-        slot.onUpdate();
+        slot.setMaximum();
         props.onUpdateSlot();
     }, [props]);
 

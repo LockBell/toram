@@ -120,12 +120,13 @@ export class Stat {
         const categories: Map<Cat, number> = new Map();
         for (const slot of this.slots) {
             if (!slot.statName || (slot.newStat && !slot.futureSteps)) continue;
-            if (!categories[slot.statData.cat]) categories[slot.statData.cat] = 0;
-            categories[slot.statData.cat]++;
+            const cat: Cat = slot.statData!.cat;
+            if (!categories.get(cat)) categories.set(cat, 1);
+            else categories.set(cat, categories.get(cat)! + 1);
         }
         const penalty_values = Array.from(categories.keys())
-            .map(c => categories.get(c))
-            .map(repeats => PENALTY_DATA[repeats as number]);
+            .map((cat: Cat) => categories.get(cat)!)
+            .map((repeats: number) => PENALTY_DATA[repeats]);
         if (!penalty_values.length) return 1;
 
         const penalty = penalty_values.reduce((a, b) => a + b);

@@ -40,7 +40,7 @@ export const OPTIONS: Option[] = [
     { name: "ATK %", mat: Mats.Beast, pot: 10, cost: 50, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 0.5 },
     { name: "MATK", mat: Mats.Wood, pot: 3, cost: "16.49", cat: Cat.Attack, type: "w", bonus: 1 },
     { name: "MATK %", mat: Mats.Wood, pot: 10, cost: 50, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 0.5 },
-    { name: "안정율 %", mat: Mats.Medicine, pot: 20, cost: 100, cat: Cat.Attack, type: "u" },
+    { name: "안정률 %", mat: Mats.Medicine, pot: 20, cost: 100, cat: Cat.Attack, type: "u" },
     { name: "물리 관통 %", mat: Mats.Beast, pot: 20, cost: 100, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 2 / 5 },
     { name: "마법 관통 %", mat: Mats.Wood, pot: 20, cost: 100, cat: Cat.Attack, type: "w", bonus: 1, bonusratio: 2 / 5 },
 
@@ -116,7 +116,13 @@ export function toramRound(value: number): number {
 }
 
 export function deepClone<T>(obj: T): T {
-    return JSON.parse(JSON.stringify(obj));
+    const clone = JSON.parse(JSON.stringify(obj));
+    if (typeof obj === 'object') {
+        Object.keys(obj as object)
+            .filter(key => !Object.prototype.hasOwnProperty.call(clone, key))
+            .forEach(key => clone[key] = obj![key as keyof T]);
+    }
+    return clone;
 }
 
 export interface Option {
@@ -132,7 +138,7 @@ export interface Option {
     readonly step?: number | undefined;
     readonly nonega?: boolean | undefined;
     readonly bonusratio?: number | undefined;
-    readonly max?: ((search: Search) => number) | number | undefined;
+    max?: ((search: Search) => number) | number | undefined;
 
     bonusdeduction?: number;
 }
